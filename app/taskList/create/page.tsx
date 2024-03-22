@@ -5,7 +5,11 @@ const tasks: string[] = ["リンゴ", "パイナップル", "ブドウ", "イチ
 export default function Home() {
     return (
         <>
-        aaa
+
+        <div className="text-3xl text-center p-8 font-bold">
+                <h1>タスク作成画面</h1>
+            </div>
+
         </>
     );
 }
