@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image";
 
 export default function Home() {
@@ -8,7 +10,7 @@ export default function Home() {
 
             <input className="block w-1/5 h-16 text-neutral-950 rounded-md pr-4 pl-4 mt-8 mb-8 mx-auto"/>
 
-            <button className="block font-bold w-1/5 h-16 border-4 rounded-full mt-8 mx-auto">作成</button>
+            <button className="block font-bold w-1/5 h-16 border-4 rounded-full mt-8 mx-auto" onClick={ () => {console.log("⭐")} }>作成</button>
 
         </div>
     );
