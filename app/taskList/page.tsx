@@ -17,9 +17,27 @@ export default function Home() {
                 <p className="border-2 text-center w-1/5 p-[10px] mx-auto m-[10px]">{tasks[3]}</p>
                 <p className="border-2 text-center w-1/5 p-[10px] mx-auto m-[10px]">{tasks[4]}</p>
                 <p className="border-2 text-center w-1/5 p-[10px] mx-auto m-[10px]">{tasks[5]}</p>
+                <p className="border-2 text-center w-1/5 p-[10px] mx-auto m-[10px]">{tasks[0]}</p>
+                <p className="border-2 text-center w-1/5 p-[10px] mx-auto m-[10px]">{tasks[1]}</p>
+                <p className="border-2 text-center w-1/5 p-[10px] mx-auto m-[10px]">{tasks[2]}</p>
+                <p className="border-2 text-center w-1/5 p-[10px] mx-auto m-[10px]">{tasks[3]}</p>
+                <p className="border-2 text-center w-1/5 p-[10px] mx-auto m-[10px]">{tasks[4]}</p>
+                <p className="border-2 text-center w-1/5 p-[10px] mx-auto m-[10px]">{tasks[5]}</p>
+                <p className="border-2 text-center w-1/5 p-[10px] mx-auto m-[10px]">{tasks[0]}</p>
+                <p className="border-2 text-center w-1/5 p-[10px] mx-auto m-[10px]">{tasks[1]}</p>
+                <p className="border-2 text-center w-1/5 p-[10px] mx-auto m-[10px]">{tasks[2]}</p>
+                <p className="border-2 text-center w-1/5 p-[10px] mx-auto m-[10px]">{tasks[3]}</p>
+                <p className="border-2 text-center w-1/5 p-[10px] mx-auto m-[10px]">{tasks[4]}</p>
+                <p className="border-2 text-center w-1/5 p-[10px] mx-auto m-[10px]">{tasks[5]}</p>
+                <p className="border-2 text-center w-1/5 p-[10px] mx-auto m-[10px]">{tasks[0]}</p>
+                <p className="border-2 text-center w-1/5 p-[10px] mx-auto m-[10px]">{tasks[1]}</p>
+                <p className="border-2 text-center w-1/5 p-[10px] mx-auto m-[10px]">{tasks[2]}</p>
+                <p className="border-2 text-center w-1/5 p-[10px] mx-auto m-[10px]">{tasks[3]}</p>
+                <p className="border-2 text-center w-1/5 p-[10px] mx-auto m-[10px]">{tasks[4]}</p>
+                <p className="border-2 text-center w-1/5 p-[10px] mx-auto m-[10px]">{tasks[5]}</p>
             </div>
 
-            <div className="text-[60px] border-4 w-[120px] h-[120px] flex items-center justify-center rounded-full font-mono absolute right-[90px] bottom-[90px]">
+            <div className="text-[60px] border-4 w-[120px] h-[120px] flex items-center justify-center rounded-full font-mono right-[90px] fixed bottom-[90px]">
                 <p>+</p>
             </div>
 
