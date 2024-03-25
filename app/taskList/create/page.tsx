@@ -11,7 +11,8 @@ export default function Home() {
     async function postTask() {
 
         if (inputRef.current?.value  == "") {
-            console.log("🔥", "空です")
+            alert("失敗！")
+            return 
         }
 
 
