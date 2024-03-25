@@ -5,6 +5,12 @@ import Image from "next/image";
 const tasks: string[] = ["リンゴ", "パイナップル", "ブドウ", "イチゴ", "ミカン", "バナナ"]
 
 export default function Home() {
+
+    async function aaa() {
+        const acquire = await (await fetch('http://localhost:3000/api/tasks'))
+        console.log("🟢", acquire)
+    }
+
     return (
         <div>
 
@@ -16,7 +22,7 @@ export default function Home() {
                 }
             )}
 
-            <button className="text-6xl border-4 w-28 h-28 flex items-center justify-center rounded-full font-mono right-20 fixed bottom-20" onClick={ () => { console.log("🔥作成")} }>+</button>
+            <button className="text-6xl border-4 w-28 h-28 flex items-center justify-center rounded-full font-mono right-20 fixed bottom-20" onClick={() => { aaa() }}>+</button>
 
         </div>
     );
