@@ -2,14 +2,14 @@
 
 import Image from "next/image";
 
-import { useState } from "react";
+import { useRef } from "react";
 
 export default function Home() {
 
-    const [text, setText] = useState("")
+    let inputText = useRef("")
 
     function setState(inputElementInfo:any) {
-        setText(inputElementInfo.target.value)
+        inputText = inputElementInfo.target.value
     }
 
 
@@ -20,7 +20,7 @@ export default function Home() {
 
             <input className="block w-1/5 h-16 text-neutral-950 rounded-md pr-4 pl-4 mt-8 mb-8 mx-auto" onChange={(inputElementInfo) => { setState(inputElementInfo) }} />
 
-            <button className="block font-bold w-1/5 h-16 border-4 rounded-full mt-8 mx-auto" onClick={() => { console.log(text) }}>作成</button>
+            <button className="block font-bold w-1/5 h-16 border-4 rounded-full mt-8 mx-auto" onClick={() => { console.log(inputText) }}>作成</button>
 
         </div>
     );
