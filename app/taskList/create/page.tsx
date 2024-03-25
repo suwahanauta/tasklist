@@ -10,7 +10,11 @@ export default function Home() {
 
     async function postTask() {
         const post =  await fetch('http://localhost:3000/api/create_task', { method: 'POST', body: JSON.stringify({ title: inputRef.current?.value }) })
-        console.log("🍍", post.status)
+        if (post.status == 200) {
+            alert("成功！")
+        } else {
+            alert("失敗！")
+        }
     }
 
     return (
