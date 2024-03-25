@@ -8,9 +8,9 @@ export default function Home() {
 
     const inputRef = useRef<HTMLInputElement>(null)
 
-    function postTask() {
-        fetch('http://localhost:3000/api/create_task', { method: 'POST', body: JSON.stringify({ title: inputRef.current?.value }) })
-            .then((res) => console.log("🍊", res.status))
+    async function postTask() {
+        const post =  await fetch('http://localhost:3000/api/create_task', { method: 'POST', body: JSON.stringify({ title: inputRef.current?.value }) })
+        console.log("🍍", post.status)
     }
 
     return (
