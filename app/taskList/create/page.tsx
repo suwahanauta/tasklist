@@ -11,9 +11,9 @@ export default function Home() {
     async function postTask() {
         const post =  await fetch('http://localhost:3000/api/create_task', { method: 'POST', body: JSON.stringify({ title: inputRef.current?.value }) })
         if (post.status == 200) {
-            console.log("成功！")
+            alert("成功！")
         } else {
-            console.log("失敗！")
+            alert("失敗！")
         }
     }
 
