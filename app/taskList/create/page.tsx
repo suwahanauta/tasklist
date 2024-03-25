@@ -9,7 +9,14 @@ export default function Home() {
     const inputRef = useRef<HTMLInputElement>(null)
 
     async function postTask() {
+
+        if (inputRef.current?.value  == "") {
+            console.log("🔥", "空です")
+        }
+
+
         const post =  await fetch('http://localhost:3000/api/create_task', { method: 'POST', body: JSON.stringify({ title: inputRef.current?.value }) })
+
         if (post.status == 200) {
             alert("成功！")
         } else {
