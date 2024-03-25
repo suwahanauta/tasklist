@@ -2,27 +2,35 @@
 
 import Image from "next/image";
 
-const tasks: string[] = ["リンゴ", "パイナップル", "ブドウ", "イチゴ", "ミカン", "バナナ"]
+let tasks: string[] = []
 
 export default function Home() {
 
-    async function aaa() {
-        const acquire = await (await fetch('http://localhost:3000/api/tasks'))
-        console.log("🟢", acquire)
+    async function acquireTask() {
+
+        const acquire = await fetch('http://localhost:3000/api/tasks')
+        const taskInfo = await acquire.json()
+
+        for (let i = 0; i < taskInfo.tasks.length; i++) {
+            tasks[i] = taskInfo.tasks[i].title
+            console.log("🟢", tasks)
+        }
+
     }
+
+    acquireTask()
 
     return (
         <div>
 
             <h1 className="text-3xl text-center p-8 font-bold">タスク一覧画面</h1>
-
             {tasks.map(
                 (task) => {
                     return <p className="border-2 text-center w-1/5 p-3 mx-auto m-3">{task}</p>
                 }
             )}
 
-            <button className="text-6xl border-4 w-28 h-28 flex items-center justify-center rounded-full font-mono right-20 fixed bottom-20" onClick={() => { aaa() }}>+</button>
+            <button className="text-6xl border-4 w-28 h-28 flex items-center justify-center rounded-full font-mono right-20 fixed bottom-20" onClick={() => { }}>+</button>
 
         </div>
     );
