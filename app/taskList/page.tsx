@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
 
-    let [tasks, setTasks] = useState<string[]>([])
+    let [tasks, setTasks] = useState<object[]>([])
 
     useEffect(() => {
 
@@ -14,11 +14,8 @@ export default function Home() {
 
             const acquire = await fetch('http://localhost:3000/api/tasks')
             const taskInfo = await acquire.json()
-
-            for (let i = 0; i < taskInfo.tasks.length; i++) {
-                const task = taskInfo.tasks[i].title
-                setTasks((oldvalue => [...oldvalue, task]))
-            }
+            const tasks = taskInfo.tasks
+            setTasks(tasks)
 
         }
 
@@ -32,12 +29,12 @@ export default function Home() {
             <h1 className="text-3xl text-center p-8 font-bold">タスク一覧画面</h1>
 
             {tasks.map(
-                (task, index) => {
-                    return <p key={index} className="border-2 text-center w-1/5 p-3 mx-auto m-3">{task}</p>
+                (task) => {
+                    return <p key={task.id} className="border-2 text-center w-1/5 p-3 mx-auto m-3">{task.title}</p>
                 }
             )}
 
-            <button className="text-6xl border-4 w-28 h-28 flex items-center justify-center rounded-full font-mono right-20 fixed bottom-20" onClick={() => {}}>+</button>
+            <button className="text-6xl border-4 w-28 h-28 flex items-center justify-center rounded-full font-mono right-20 fixed bottom-20" onClick={() => { }}>+</button>
 
         </div>
     );
