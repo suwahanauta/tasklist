@@ -2,20 +2,13 @@
 
 import Image from "next/image";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
 
     let [tasks, setTasks] = useState<string[]>([])
 
-    const refFirstRef = useRef(true)
-
     useEffect(() => {
-
-        if (refFirstRef.current) {
-            refFirstRef.current = false
-            return;
-        }
 
         async function acquireTask() {
 
