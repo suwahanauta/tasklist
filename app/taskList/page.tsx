@@ -6,7 +6,12 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
 
-    let [tasks, setTasks] = useState<object[]>([])
+    type catchAPI = {
+        id: string,
+        title: string
+    }
+
+    let [tasks, setTasks] = useState<catchAPI[]>([])
 
     useEffect(() => {
 
