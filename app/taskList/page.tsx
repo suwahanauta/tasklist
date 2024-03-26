@@ -2,31 +2,52 @@
 
 import Image from "next/image";
 
-let tasks: string[] = []
+import { useState, useEffect, useRef } from "react";
 
 export default function Home() {
 
-    async function acquireTask() {
+    let [tasks, setTasks] = useState<string[]>([""])
 
-        const acquire = await fetch('http://localhost:3000/api/tasks')
-        const taskInfo = await acquire.json()
+    const refFirstRef = useRef(true)
 
-        for (let i = 0; i < taskInfo.tasks.length; i++) {
-            tasks[i] = taskInfo.tasks[i].title
-            console.log("🟢", tasks)
+    useEffect(() => {
+
+        if (refFirstRef.current) {
+            refFirstRef.current = false
+            return;
         }
 
-    }
+        async function acquireTask() {
 
-    acquireTask()
+            const acquire = await fetch('http://localhost:3000/api/tasks')
+            const taskInfo = await acquire.json()
+
+            for (let i = 0; i < taskInfo.tasks.length; i++) {
+                const task = taskInfo.tasks[i].title
+                console.log("🟢", task)
+                setTasks((oldvalue => [...oldvalue, task]))
+
+            }
+
+        }
+
+        acquireTask()
+
+    }, [])
 
     return (
         <div>
 
             <h1 className="text-3xl text-center p-8 font-bold">タスク一覧画面</h1>
+
             {tasks.map(
-                (task) => {
-                    return <p className="border-2 text-center w-1/5 p-3 mx-auto m-3">{task}</p>
+                (task, index) => {
+
+                    if (task == "") {
+                        return
+                    }
+
+                    return <p key={index} className="border-2 text-center w-1/5 p-3 mx-auto m-3">{task}</p>
                 }
             )}
 
