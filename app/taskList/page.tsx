@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react";
 
 export default function Home() {
 
-    let [tasks, setTasks] = useState<string[]>([""])
+    let [tasks, setTasks] = useState<string[]>([])
 
     const refFirstRef = useRef(true)
 
@@ -24,9 +24,7 @@ export default function Home() {
 
             for (let i = 0; i < taskInfo.tasks.length; i++) {
                 const task = taskInfo.tasks[i].title
-                console.log("🟢", task)
                 setTasks((oldvalue => [...oldvalue, task]))
-
             }
 
         }
@@ -42,16 +40,11 @@ export default function Home() {
 
             {tasks.map(
                 (task, index) => {
-
-                    if (task == "") {
-                        return
-                    }
-
                     return <p key={index} className="border-2 text-center w-1/5 p-3 mx-auto m-3">{task}</p>
                 }
             )}
 
-            <button className="text-6xl border-4 w-28 h-28 flex items-center justify-center rounded-full font-mono right-20 fixed bottom-20" onClick={() => { }}>+</button>
+            <button className="text-6xl border-4 w-28 h-28 flex items-center justify-center rounded-full font-mono right-20 fixed bottom-20" onClick={() => {}}>+</button>
 
         </div>
     );
