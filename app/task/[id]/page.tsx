@@ -2,30 +2,26 @@
 
 import { useParams } from 'next/navigation'
 
-import Image from "next/image";
+import Image from "next/image"
 
-import axios from "axios";
-
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 
 export default function Home() {
 
     const param = useParams()
 
-    let [title, setTitle] = useState("")
+    const [title, setTitle] = useState()
 
     useEffect(() => {
 
         async function getTask() {
-            const aqcuire = await axios.get('http://localhost:3000/api/task', { params: { id: param.id } })
-            const task = aqcuire.data.task
-            const title = task.title
-            setTitle(title)
+            const aqcuire = await fetch(`http://localhost:3000/api/task?id=${param.id}`)
+            const task = await aqcuire.json()
+            setTitle(task.task.title)
         }
-
         getTask()
 
-    })
+    },[])
 
     return (
         <div>
