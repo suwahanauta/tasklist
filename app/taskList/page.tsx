@@ -6,12 +6,12 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
 
-    type catchAPI = {
+    type Task = {
         id: string,
         title: string
     }
 
-    let [tasks, setTasks] = useState<catchAPI[]>([])
+    let [tasks, setTasks] = useState<Task[]>([])
 
     useEffect(() => {
 
@@ -39,7 +39,7 @@ export default function Home() {
                 }
             )}
 
-            <button className="text-6xl border-4 w-28 h-28 flex items-center justify-center rounded-full font-mono right-20 fixed bottom-20" onClick={() => { }}>+</button>
+            <a className="block text-6xl border-4 w-28 h-28 flex items-center justify-center rounded-full font-mono right-20 fixed bottom-20" href="/taskList/create">+</a>
 
         </div>
     );
