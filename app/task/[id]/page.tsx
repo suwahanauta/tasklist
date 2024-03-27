@@ -16,14 +16,14 @@ export default function Home() {
 
     useEffect(() => {
 
-        async function catchAPI() {
-            const aqcuire = await axios.get('http://localhost:3000/api/task', { params: { id: param.id} })
+        async function getTask() {
+            const aqcuire = await axios.get('http://localhost:3000/api/task', { params: { id: param.id } })
             const task = aqcuire.data.task
             const title = task.title
             setTitle(title)
         }
 
-        catchAPI()
+        getTask()
 
     })
 
