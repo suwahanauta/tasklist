@@ -35,7 +35,7 @@ export default function Home() {
 
             {tasks.map(
                 (task) => {
-                    return <p key={task.id} className="border-2 text-center w-1/5 p-3 mx-auto m-3">{task.title}</p>
+                    return <p key={task.id} className="border-2 text-center w-1/5 p-3 mx-auto m-3" onClick={ () => {window.location.href = `/task/${task.id}`} }>{task.title}</p>
                 }
             )}
 
