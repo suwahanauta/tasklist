@@ -6,12 +6,12 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
 
-    type taskInfo = {
+    type Task = {
         id: string,
         title: string
     }
 
-    let [tasks, setTasks] = useState<taskInfo[]>([])
+    let [tasks, setTasks] = useState<Task[]>([])
 
     useEffect(() => {
 
