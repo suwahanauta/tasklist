@@ -39,7 +39,7 @@ export default function Home() {
                 }
             )}
 
-            <a className="block text-6xl border-4 w-28 h-28 flex items-center justify-center rounded-full font-mono right-20 fixed bottom-20" onClick={() => { window.location.href = "/taskList/create" }}>+</a>
+            <a className="block text-6xl border-4 w-28 h-28 flex items-center justify-center rounded-full font-mono right-20 fixed bottom-20" href="/taskList/create">+</a>
 
         </div>
     );
