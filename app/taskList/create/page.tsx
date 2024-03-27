@@ -10,13 +10,12 @@ export default function Home() {
 
     async function postTask() {
 
-        if (inputRef.current?.value  == "") {
+        if (inputRef.current?.value == "") {
             alert("失敗！")
-            return 
+            return
         }
 
-
-        const post =  await fetch('http://localhost:3000/api/create_task', { method: 'POST', body: JSON.stringify({ title: inputRef.current?.value }) })
+        const post = await fetch('http://localhost:3000/api/create_task', { method: 'POST', body: JSON.stringify({ title: inputRef.current?.value }) })
 
         if (post.status == 200) {
             alert("成功！")

@@ -2,9 +2,32 @@
 
 import Image from "next/image";
 
-const tasks: string[] = ["リンゴ", "パイナップル", "ブドウ", "イチゴ", "ミカン", "バナナ"]
+import { useState, useEffect } from "react";
 
 export default function Home() {
+
+    type catchAPI = {
+        id: string,
+        title: string
+    }
+
+    let [tasks, setTasks] = useState<catchAPI[]>([])
+
+    useEffect(() => {
+
+        async function acquireTask() {
+
+            const acquire = await fetch('http://localhost:3000/api/tasks')
+            const taskInfo = await acquire.json()
+            const tasks = taskInfo.tasks
+            setTasks(tasks)
+
+        }
+
+        acquireTask()
+
+    }, [])
+
     return (
         <div>
 
@@ -12,11 +35,11 @@ export default function Home() {
 
             {tasks.map(
                 (task) => {
-                    return <p className="border-2 text-center w-1/5 p-3 mx-auto m-3">{task}</p>
+                    return <p key={task.id} className="border-2 text-center w-1/5 p-3 mx-auto m-3">{task.title}</p>
                 }
             )}
 
-            <button className="text-6xl border-4 w-28 h-28 flex items-center justify-center rounded-full font-mono right-20 fixed bottom-20" onClick={ () => { console.log("🔥作成")} }>+</button>
+            <button className="text-6xl border-4 w-28 h-28 flex items-center justify-center rounded-full font-mono right-20 fixed bottom-20" onClick={() => { }}>+</button>
 
         </div>
     );
