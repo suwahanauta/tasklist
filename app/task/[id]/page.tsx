@@ -16,8 +16,8 @@ export default function Home() {
 
         async function getTask() {
             const aqcuire = await fetch(`http://localhost:3000/api/task?id=${param.id}`)
-            const task = await aqcuire.json()
-            setTitle(task.task.title)
+            const json = await aqcuire.json()
+            setTitle(json.task.title)
         }
         getTask()
 
@@ -26,7 +26,7 @@ export default function Home() {
     return (
         <div>
             <h1 className="text-3xl text-center p-8 font-bold">タスク詳細画面</h1>
-            <center><p>{title}</p></center>
+            <p className='text-center'>{title}</p>
         </div>
     );
 }
